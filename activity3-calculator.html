@@ -1,0 +1,17 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Grade Calculator | Activity 3</title><link rel="stylesheet" href="styles.css"></head><body>
+<header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">LB</span><span>TVED-ICT 604 <small>ACTIVITY 03</small></span></a><nav><a href="index.html">All Activities</a><a href="activity4-dom.html">Next Activity →</a></nav></header>
+<main><section class="page-head"><div class="eyebrow">ACTIVITY 03 · JAVASCRIPT VARIABLES & FUNCTIONS</div><h1>Examination Average Calculator</h1><p>Enter the student's name and three examination scores. The program will calculate and display the average.</p></section>
+<section class="panel" style="max-width:650px"><form id="gradeForm"><div class="field full"><label for="studentName">Student name</label><input id="studentName" required placeholder="Enter full name"></div><div class="form-grid" style="margin-top:16px"><div class="field"><label for="score1">Examination 1</label><input id="score1" type="number" min="0" max="100" step="any" required placeholder="0–100"></div><div class="field"><label for="score2">Examination 2</label><input id="score2" type="number" min="0" max="100" step="any" required placeholder="0–100"></div><div class="field"><label for="score3">Examination 3</label><input id="score3" type="number" min="0" max="100" step="any" required placeholder="0–100"></div></div><button class="primary" type="submit">Calculate average</button></form><div class="result" id="gradeResult" aria-live="polite"></div></section></main><footer><span>© 2026 LIMART A. BERING</span><span>ACTIVITY 03 · JAVASCRIPT</span></footer>
+<script>
+function calculateAverage(a,b,c){return (a+b+c)/3;}
+document.getElementById('gradeForm').addEventListener('submit',function(event){
+ event.preventDefault();
+ const name=document.getElementById('studentName').value.trim();
+ const scores=['score1','score2','score3'].map(id=>Number(document.getElementById(id).value));
+ const result=document.getElementById('gradeResult');
+ if(scores.some(score=>!Number.isFinite(score)||score<0||score>100)){result.textContent='Please enter valid scores from 0 to 100.';result.classList.add('show');return;}
+ const average=calculateAverage(...scores);
+ result.textContent=`Student: ${name} | Average score: ${average.toFixed(2)} / 100`;
+ result.classList.add('show');
+});
+</script></body></html>

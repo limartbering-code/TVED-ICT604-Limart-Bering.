@@ -1,0 +1,12 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DOM Interaction | Activity 4</title><link rel="stylesheet" href="styles.css"></head><body id="pageBody">
+<header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">LB</span><span>TVED-ICT 604 <small>ACTIVITY 04</small></span></a><nav><a href="index.html">All Activities</a><a href="activity5-form.html">Next Activity →</a></nav></header>
+<main><section class="page-head"><div class="eyebrow">ACTIVITY 04 · EVENTS & DOM MANIPULATION</div><h1 id="mainHeading">Welcome to my webpage</h1><p>Click the button below to see JavaScript events and DOM manipulation in action.</p></section><section class="panel" style="max-width:650px;text-align:center;padding:55px 25px"><div style="font-size:48px">✦</div><h2 id="subHeading">Ready to interact?</h2><p class="muted" id="welcomeMessage">Press the button to change this webpage.</p><button class="primary" id="clickButton" type="button">Click Me</button></section></main><footer><span>© 2026 LIMART A. BERING</span><span>ACTIVITY 04 · JAVASCRIPT DOM</span></footer>
+<script>
+document.getElementById('clickButton').addEventListener('click',function(){
+ document.getElementById('mainHeading').textContent='Thank you for visiting!';
+ document.getElementById('subHeading').textContent='You made it interactive!';
+ document.getElementById('welcomeMessage').textContent='Welcome! JavaScript successfully changed the heading, displayed this message, and updated the background color.';
+ document.getElementById('pageBody').style.backgroundColor='#e9f7f1';
+ this.textContent='Clicked ✓';
+});
+</script></body></html>

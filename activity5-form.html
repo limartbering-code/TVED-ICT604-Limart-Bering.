@@ -1,0 +1,23 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Student Registration | Activity 5</title><link rel="stylesheet" href="styles.css"></head><body>
+<header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">LB</span><span>TVED-ICT 604 <small>ACTIVITY 05</small></span></a><nav><a href="index.html">All Activities</a><a href="activity1-profile.html">Back to Profile</a></nav></header>
+<main><section class="page-head"><div class="eyebrow">ACTIVITY 05 · FORM VALIDATION</div><h1>Student Registration</h1><p>Complete the form below. Required fields and basic input formats are validated before a confirmation is displayed.</p></section>
+<section class="panel" style="max-width:760px"><form id="registrationForm"><div class="form-grid">
+<div class="field full"><label for="fullName">Student Name</label><input id="fullName" name="fullName" required minlength="2" placeholder="Enter your complete name"></div>
+<div class="field"><label for="email">Email Address</label><input id="email" name="email" type="email" required placeholder="name@example.com"></div>
+<div class="field"><label for="phone">Contact Number</label><input id="phone" name="phone" type="tel" required pattern="[0-9+() -]{7,20}" placeholder="e.g. 09XXXXXXXXX"></div>
+<div class="field"><label for="course">Course</label><select id="course" name="course" required><option value="">Select a course</option><option>BTLED – ICT</option><option>Bachelor of Science in Information Technology</option><option>Bachelor of Secondary Education</option><option>Other</option></select></div>
+<div class="field"><label for="yearLevel">Year Level</label><select id="yearLevel" name="yearLevel" required><option value="">Select year level</option><option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option><option>Graduate Student</option></select></div>
+</div><button class="primary" type="submit">Submit registration</button></form><div class="result" id="formResult" aria-live="polite"></div></section></main><footer><span>© 2026 LIMART A. BERING</span><span>ACTIVITY 05 · FORM VALIDATION</span></footer>
+<script>
+document.getElementById('registrationForm').addEventListener('submit',function(event){
+ event.preventDefault();
+ if(!this.reportValidity()) return;
+ const name=document.getElementById('fullName').value.trim();
+ const course=document.getElementById('course').value;
+ const year=document.getElementById('yearLevel').value;
+ const result=document.getElementById('formResult');
+ result.textContent=`Registration submitted successfully for ${name}. Course: ${course}. Year level: ${year}. (Demo only — no data has been sent or stored.)`;
+ result.classList.add('show');
+ this.reset();
+});
+</script></body></html>
